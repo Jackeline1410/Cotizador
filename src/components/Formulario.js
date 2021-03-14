@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { obtenerDiferenciaYear, calcularMarca, obtenerPlan } from '../helper';
 
@@ -50,7 +50,7 @@ const Error = styled.div`
     margin-bottom: 2rem;
 `;
 
-const Formulario = () => {
+const Formulario = ({ guardarResumen }) => {
 
 const [ datos, guardarDatos ] = useState({
     marca: '',
@@ -106,6 +106,11 @@ const cotizarSeguro = e => {
     console.log(resultado);
 
     // Total
+    guardarResumen({
+        cotizacion: resultado,
+        datos
+    });
+
 
 }
 
